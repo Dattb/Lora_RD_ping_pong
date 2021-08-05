@@ -1,0 +1,13 @@
+stm32wlxx_ll_rcc.h:1972:22:LL_RCC_SetClkAfterWakeFromStop	16	static
+stm32wlxx_ll_bus.h:449:22:LL_AHB2_GRP1_EnableClock	24	static
+stm32wlxx_ll_bus.h:489:22:LL_AHB2_GRP1_DisableClock	16	static
+sys_app.c:90:6:SystemApp_Init	8	static
+sys_app.c:134:6:UTIL_SEQ_Idle	8	static
+sys_app.c:150:13:TimestampNow	32	static
+sys_app.c:163:13:Gpio_PreInit	32	static
+sys_app.c:203:6:UTIL_ADV_TRACE_PreSendHook	8	static
+sys_app.c:214:6:UTIL_ADV_TRACE_PostSendHook	8	static
+sys_app.c:225:13:tiny_snprintf_like	24	static
+sys_app.c:250:19:HAL_InitTick	16	static
+sys_app.c:267:10:HAL_GetTick	8	static
+sys_app.c:284:6:HAL_Delay	16	static

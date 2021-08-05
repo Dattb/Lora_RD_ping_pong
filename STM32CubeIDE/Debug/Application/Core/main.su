@@ -1,0 +1,7 @@
+stm32wlxx_ll_rcc.h:1258:22:LL_RCC_LSE_SetDriveCapability	16	static
+stm32wlxx_ll_bus.h:449:22:LL_AHB2_GRP1_EnableClock	24	static
+main.c:73:5:main	8	static
+main.c:118:6:SystemClock_Config	112	static
+main.c:160:6:RD_button_detect	16	static
+main.c:172:7:RD_GPIO_Init	32	static
+main.c:192:6:Error_Handler	4	static
