@@ -463,6 +463,36 @@
               <FileType>1</FileType>
               <FilePath>../Core/Src/usart_if.c</FilePath>
             </File>
+            <File>
+              <FileName>sht30_sensor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\sht30_sensor.c</FilePath>
+            </File>
+            <File>
+              <FileName>sht30_sensor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Core\Src\sht30_sensor.h</FilePath>
+            </File>
+            <File>
+              <FileName>max44009_sensor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\max44009_sensor.c</FilePath>
+            </File>
+            <File>
+              <FileName>max44009_sensor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Core\Src\max44009_sensor.h</FilePath>
+            </File>
+            <File>
+              <FileName>kalman_filter.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\kalman_filter.c</FilePath>
+            </File>
+            <File>
+              <FileName>kalman_filter.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Core\Src\kalman_filter.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -617,6 +647,16 @@
               <FileName>stm32wlxx_hal_uart_ex.c</FileName>
               <FileType>1</FileType>
               <FilePath>../../../../../../Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_uart_ex.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32wlxx_hal_i2c.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\Drivers\STM32WLxx_HAL_Driver\Src\stm32wlxx_hal_i2c.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32wlxx_hal_i2c_ex.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\Drivers\STM32WLxx_HAL_Driver\Src\stm32wlxx_hal_i2c_ex.c</FilePath>
             </File>
           </Files>
         </Group>

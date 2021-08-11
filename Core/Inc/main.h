@@ -93,6 +93,9 @@ void Error_Handler(void);
 #define USARTx_TX_GPIO_Port GPIOA
 #define DBG4_Pin GPIO_PIN_10
 #define DBG4_GPIO_Port GPIOB
+#define RD_I2C1_PORT			GPIOB
+#define RD_I2C1_SDA_PIN		GPIO_PIN_7
+#define RD_I2C1_SCL_PIN		GPIO_PIN_8
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

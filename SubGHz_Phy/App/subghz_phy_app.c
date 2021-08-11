@@ -40,6 +40,7 @@
 #include "stm32_seq.h"
 #include "utilities_def.h"
 #include "app_version.h"
+//#include "App"
 
 /* USER CODE BEGIN Includes */
 
@@ -48,9 +49,14 @@
 /* External variables ---------------------------------------------------------*/
 /* USER CODE BEGIN EV */
 extern unsigned char ping_flag;
-unsigned char radio_rx_flag = 1,radio_tx_flag = 0;
+unsigned char radio_rx_flag = 1,radio_tx_flag = 1;
 unsigned char radio_rx_cnt = 0;
 uint8_t tx_cnt = 0;
+extern unsigned char i2c_read_done_flag;
+extern unsigned int sht30_temp;
+extern unsigned int sht30_hum;
+extern 	uint32_t data_max44009;
+extern uint32_t ground_hum_data;
 /* USER CODE END EV */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -423,26 +429,19 @@ static void PingPong_Process(void)//RD_EDIT: ham xu ly ping pong
 //  }
   /* USER CODE BEGIN PingPong_Process_2 */
 
-
-
-
-      /* Send the next PING frame */
+	if(i2c_read_done_flag){
+		i2c_read_done_flag = 0;
+		radio_rx_flag = 0;
+		radio_tx_flag = 1;
+	}
 
 	if(radio_rx_flag){
 		//APP_LOG(TS_ON, VLEVEL_L, " RX: \n\r");
 		Radio.SetChannel(RF_FREQUENCY);
 		Radio.Rx(RX_TIMEOUT_VALUE);
-		 if (strncmp((const char *)Buffer, (const char *)RD_header, 5) == 0){
-			tx_cnt = Buffer[5];
-//			uint8_t rd_recevie_buff[32] = "RD_receive: ";
-//			strcat(rd_recevie_buff,Buffer);
-//			strcat(rd_recevie_buff,"\r\n");
-			APP_LOG(TS_ON, VLEVEL_L,"RD_cnt = %d\r\n",tx_cnt);
-			radio_tx_flag = 1;
-			radio_rx_flag = 0;
-		}
 	}
-
+	//RD_EDIT: function to send temp and hum data
+	/*
 	if(radio_tx_flag){
 		tx_cnt++;
 		//APP_LOG(TS_ON, VLEVEL_L, "*******TX: \n\r");
@@ -450,19 +449,66 @@ static void PingPong_Process(void)//RD_EDIT: ham xu ly ping pong
 		Buffer[0] = 'D';
 		Buffer[1] = 'A';
 		Buffer[2] = 'T';
-		Buffer[3] = '0';
-		Buffer[4] = '9';
-		Buffer[5] = tx_cnt;
+		Buffer[3] = 'P';
+		Buffer[4] = 'R';
+		Buffer[5] = (unsigned char )(sht30_temp);
+		Buffer[6] = (unsigned char )(sht30_temp>>8);
+		Buffer[7] = (unsigned char )(sht30_hum);
+		Buffer[8] = (unsigned char )(sht30_hum>>8);
 		Radio.SetChannel(RF_FREQUENCY);
 		HAL_Delay(Radio.GetWakeupTime() + TCXO_WORKAROUND_TIME_MARGIN);
 		Radio.Send(Buffer, BufferSize);
 		radio_tx_flag = 0;
 		radio_rx_flag = 1;
 	}
+	*/
+	
+	/*
+	RD_EDIT: function to send max44009 sensor data
+		if(radio_tx_flag){
+		tx_cnt++;
+		//APP_LOG(TS_ON, VLEVEL_L, "*******TX: \n\r");
 
-	for (uint8_t i = 0; i < BufferSize; i++){
-		Buffer[i] = 0;
+		Buffer[0] = 'D';
+		Buffer[1] = 'A';
+		Buffer[2] = 'T';
+		Buffer[3] = 'P';
+		Buffer[4] = 'R';
+		Buffer[5] = (unsigned char )(data_max44009);
+		Buffer[6] = (unsigned char )(data_max44009>>8);
+		Radio.SetChannel(RF_FREQUENCY);
+		HAL_Delay(Radio.GetWakeupTime() + TCXO_WORKAROUND_TIME_MARGIN);
+		Radio.Send(Buffer, BufferSize);
+		radio_tx_flag = 0;
+		radio_rx_flag = 1;
+			
+			
+
 	}
+	*/
+	
+	
+	
+		//RD_EDIT: function to send grounnd hum data
+	if(radio_tx_flag){
+		tx_cnt++;
+		//APP_LOG(TS_ON, VLEVEL_L, "*******TX: \n\r");
+		Buffer[0] = 'D';
+		Buffer[1] = 'A';
+		Buffer[2] = 'T';
+		Buffer[3] = 'P';
+		Buffer[4] = 'R';
+		Buffer[5] = (unsigned char )(ground_hum_data);
+		Buffer[6] = (unsigned char )(ground_hum_data>>8);
+		Radio.SetChannel(RF_FREQUENCY);
+		HAL_Delay(Radio.GetWakeupTime() + TCXO_WORKAROUND_TIME_MARGIN);
+		Radio.Send(Buffer, BufferSize);
+		radio_tx_flag = 0;
+		radio_rx_flag = 1;
+	}
+	
+	for(uint8_t i = 0; i < BufferSize; i++) Buffer[i] = 0;
+	
 
 
   /* USER CODE END PingPong_Process_2 */

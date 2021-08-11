@@ -19,12 +19,18 @@ subghz_phy_pingpong/exe/main.o: ..\Core\Src\main.c ..\Core\Inc\main.h \
   ..\..\..\..\..\..\Drivers\STM32WLxx_HAL_Driver\Inc\stm32wlxx_ll_dma.h \
   ..\..\..\..\..\..\Drivers\STM32WLxx_HAL_Driver\Inc\stm32wlxx_ll_dmamux.h \
   ..\..\..\..\..\..\Drivers\STM32WLxx_HAL_Driver\Inc\stm32wlxx_hal_dma_ex.h \
+  ..\..\..\..\..\..\Drivers\STM32WLxx_HAL_Driver\Inc\stm32wlxx_hal_adc.h \
+  ..\..\..\..\..\..\Drivers\STM32WLxx_HAL_Driver\Inc\stm32wlxx_ll_adc.h \
+  ..\..\..\..\..\..\Drivers\STM32WLxx_HAL_Driver\Inc\stm32wlxx_hal_adc_ex.h \
   ..\..\..\..\..\..\Drivers\STM32WLxx_HAL_Driver\Inc\stm32wlxx_hal_cortex.h \
   ..\..\..\..\..\..\Drivers\STM32WLxx_HAL_Driver\Inc\stm32wlxx_hal_exti.h \
   ..\..\..\..\..\..\Drivers\STM32WLxx_HAL_Driver\Inc\stm32wlxx_hal_flash.h \
   ..\..\..\..\..\..\Drivers\STM32WLxx_HAL_Driver\Inc\stm32wlxx_hal_flash_ex.h \
   ..\..\..\..\..\..\Drivers\STM32WLxx_HAL_Driver\Inc\stm32wlxx_hal_gpio.h \
   ..\..\..\..\..\..\Drivers\STM32WLxx_HAL_Driver\Inc\stm32wlxx_hal_gpio_ex.h \
+  ..\..\..\..\..\..\Drivers\STM32WLxx_HAL_Driver\Inc\stm32wlxx_hal_i2c.h \
+  ..\..\..\..\..\..\Drivers\STM32WLxx_HAL_Driver\Inc\stm32wlxx_hal_dma.h \
+  ..\..\..\..\..\..\Drivers\STM32WLxx_HAL_Driver\Inc\stm32wlxx_hal_i2c_ex.h \
   ..\..\..\..\..\..\Drivers\STM32WLxx_HAL_Driver\Inc\stm32wlxx_hal_pwr.h \
   ..\..\..\..\..\..\Drivers\STM32WLxx_HAL_Driver\Inc\stm32wlxx_ll_pwr.h \
   ..\..\..\..\..\..\Drivers\STM32WLxx_HAL_Driver\Inc\stm32wlxx_hal_pwr_ex.h \
@@ -40,7 +46,6 @@ subghz_phy_pingpong/exe/main.o: ..\Core\Src\main.c ..\Core\Inc\main.h \
   ..\..\..\..\..\..\Drivers\STM32WLxx_HAL_Driver\Inc\stm32wlxx_hal_tim.h \
   ..\..\..\..\..\..\Drivers\STM32WLxx_HAL_Driver\Inc\stm32wlxx_hal_tim_ex.h \
   ..\..\..\..\..\..\Drivers\STM32WLxx_HAL_Driver\Inc\stm32wlxx_hal_uart.h \
-  ..\..\..\..\..\..\Drivers\STM32WLxx_HAL_Driver\Inc\stm32wlxx_hal_dma.h \
   ..\..\..\..\..\..\Drivers\STM32WLxx_HAL_Driver\Inc\stm32wlxx_hal_uart_ex.h \
   ..\..\..\..\..\..\Drivers\STM32WLxx_HAL_Driver\Inc\stm32wlxx_ll_system.h \
   ..\Core\Inc\board_resources.h ..\Core\Inc\utilities_conf.h \
@@ -51,4 +56,8 @@ subghz_phy_pingpong/exe/main.o: ..\Core\Src\main.c ..\Core\Inc\main.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdarg.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h \
   ..\SUBGHZ_PHY\App\app_subghz_phy.h ..\Core\Inc\usart.h \
-  ..\Core\Inc\main.h
+  ..\Core\Inc\main.h ..\Core\Inc\sys_app.h ..\Core\Inc\sys_conf.h \
+  ..\..\..\..\..\..\Utilities\trace\adv_trace\stm32_adv_trace.h \
+  ..\Core\Src\sht30_sensor.h ..\Core\Src\max44009_sensor.h \
+  ..\Core\Src\kalman_filter.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\math.h
